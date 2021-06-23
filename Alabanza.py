@@ -9,10 +9,54 @@ if confra == 0:
     meetings = ["Jueves","Domingo 8:00","Domingo 10:30","Domingo 12:30"]
 elif confra == 1:
     meetings = ["Jueves","Domingo 8:00","Domingo 10:30","Domingo 5:00"]
+
+
+
+
+entry1 = input("Desea ordenar canciones? (Y/N): ")
+entry2 = input("Desea ordenar bateristas? (Y/N): ")
+entry1 = entry1.lower()
+entry2 = entry2.lower()
+
+if entry2 == "y":
+    entry_base = input("Quiere usar como referencia los bateristas generados anterior mente? (Y/N): ")
+    entry_base = entry_base.lower()
+    if entry_base != "y":
+        from os import remove
+        from os import path
+        if path.exists("/home/decodigo/Documentos/python/archivos/filename.txt"):
+            remove('/home/decodigo/Documentos/python/archivos/filename.txt')
+
+
+        drummers_entry_out = []
+        drummers_entry = input("Quien toco el Jueves: ")
+        drummers_entry2 = input("Quien toco el Domingo a las 8: ")
+        drummers_entry3 = input("Quien toco el Domingo a las 10:30: ")
+        drummers_entry4 = input("Quien toco el Domingo a las 12:30: ")
+        drummers_entry = drummers_entry.lower()
+        drummers_entry2 = drummers_entry2.lower()
+        drummers_entry3 = drummers_entry3.lower()
+        drummers_entry4 = drummers_entry4.lower()
+        drummers_entry_out.append(drummers_entry)
+        drummers_entry_out.append(drummers_entry2)
+        drummers_entry_out.append(drummers_entry3)
+        drummers_entry_out.append(drummers_entry4)
+
+        
+        with open('base_de_datos.json', 'w') as file:
+            json.dump(drummers_entry_out, file, indent=4)
+
+
+
+
+
+
+
+
 def drummer():
     #   Esta funcion define un orden de bateristas random
     def random_orden():
-        drummers = ["Daniel","Alejandro","Yeny","Samuel"]
+        drummers = ["daniel","alejandro","yeny","samuel"]
         number_drummers = random.randint(0, 3)
         salida = []
         i = 0
@@ -26,9 +70,6 @@ def drummer():
         return(salida)
     #   Esta funcion verifica que el orden no sea el mismo que la vez anterior
     def random_drummers():
-        # file = open("base_de_datos.txt",'r')
-        # contents = file.read()
-        # words = contents.split()
         tf = open("base_de_datos.json", "r")
         words = json.load(tf)
         while True:
@@ -132,10 +173,19 @@ slow_womens_out.append(slow_sons_womens[slow_sons_womens_number()])
 # union de arrays
 sons = mens_out + womens_out + slow_mens_out + slow_womens_out
 
-print(sons)
+if entry1 == "y":
+    print(sons)
+if entry2 == "y":
+    print(drummers_out)
 
-# print(slow_mens_out)
-# print(mens_out)
-# print(drummers_out)
 
+
+
+
+
+
+# from os import remove
+# from os import path
+# if path.exists("base_de_datos.json"):
+#     remove('base_de_datos.json')
 
