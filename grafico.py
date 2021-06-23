@@ -19,7 +19,7 @@ def main():
     lbl.grid(column=0, row=0)
 
     combo = Combobox(window)
-    combo['values']= ("Daniel", "Alejandro", "Samuel", "Yeny")
+    combo['values']= ("daniel", "alejandro", "samuel", "yeny")
     combo.current(1) #set the selected item
     combo.grid(column=0, row=100)
 
@@ -27,7 +27,7 @@ def main():
     lbl = Label(window, text="Domingo 8:00")
     lbl.grid(column=0, row=200)
     combo1 = Combobox(window)
-    combo1['values']= ("Daniel", "Alejandro", "Samuel", "Yeny")
+    combo1['values']= ("daniel", "alejandro", "samuel", "yeny")
     combo1.current(1) #set the selected item
     combo1.grid(column=0, row=300)
 
@@ -35,7 +35,7 @@ def main():
     lbl = Label(window, text="Domingo 10:30")
     lbl.grid(column=0, row=400)
     combo2 = Combobox(window)
-    combo2['values']= ("Daniel", "Alejandro", "Samuel", "Yeny")
+    combo2['values']= ("daniel", "alejandro", "samuel", "yeny")
     combo2.current(1) #set the selected item
     combo2.grid(column=0, row=500)
 
@@ -43,7 +43,7 @@ def main():
     lbl = Label(window, text="Domingo 12:30")
     lbl.grid(column=0, row=600)
     combo3 = Combobox(window)
-    combo3['values']= ("Daniel", "Alejandro", "Samuel", "Yeny")
+    combo3['values']= ("daniel", "alejandro", "samuel", "yeny")
     combo3.current(1) #set the selected item
     combo3.grid(column=0, row=700)
 
@@ -57,7 +57,7 @@ def main():
             while i < 4:
                 number_drummers = random.randint(0, 3)
                 drummer = drummers[number_drummers]
-                if not(i == 2 and drummer == "Samuel"):
+                if not(i == 2 and drummer == "samuel"):
                     if not(drummer in salida):
                         salida.append(drummer)
                         i += 1
