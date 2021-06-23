@@ -77,7 +77,6 @@ def main():
         json.dump(drummers_out, file, indent=4)
     
 
-
     # aqui definimos un numero random del las listas
     def new_sons_mens_number():
         new_sons_mens_number = random.randint(1, 37)
