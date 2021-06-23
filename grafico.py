@@ -6,6 +6,7 @@ import random
 import json
 from os import remove
 from os import path
+from tkinter import scrolledtext
 
 def main():
     
@@ -13,7 +14,7 @@ def main():
 
     window.title("Automatic generator for praise")
 
-    window.geometry('350x200')
+    window.geometry('900x500')
 
     lbl = Label(window, text="Jueves")
     lbl.grid(column=0, row=0)
@@ -70,11 +71,14 @@ def main():
                 words.append(combo1.get())
                 words.append(combo2.get())
                 words.append(combo3.get())
+                if words[0] == "alejandro" and words[1] == "alejandro" and words[2] == "alejandro":                    
+                    messagebox.showinfo("ERROR","Por favor ponga los bateristas que tocaron")
+                    break
+
                 salida = random_orden()
                 error = 0
                 i = 0
                 while i < 4:
-                    print(words)
                     if words[i] == salida[i]:
                         pass
                     else:
@@ -85,8 +89,10 @@ def main():
             return(salida)
         
         drummers_outing = random_drummers()
-        print(drummers_outing)
-        messagebox.showinfo("orden aletorio de los bateristas es",drummers_outing)
+        txt = scrolledtext.ScrolledText(window,width=30,height=10)
+        txt.grid(column=1,row=900)
+        txt.insert(INSERT,drummers_outing)
+        return(drummers_outing)
 
     
 
@@ -177,10 +183,24 @@ def main():
         slow_womens_out = []
         slow_womens_out.append(slow_sons_womens[slow_sons_womens_number()])
         sons = mens_out + womens_out + slow_mens_out + slow_womens_out
-        messagebox.showinfo("El orden aleatorio de las canciones es",sons)
+
+        txt = scrolledtext.ScrolledText(window,width=40,height=10)
+        txt.grid(column=0,row=900)
+        txt.insert(INSERT,sons)
+
+        #messagebox.showinfo("El orden aleatorio de las canciones es",sons)
+        #lbl2 = Label(window, text=str(sons))
+        #lbl2.grid(column=0, row=900)
+        return(sons)
     
     btn2 = Button(window,text='Canciones aleatorias', command=sons)
     btn2.grid(column=200,row=400)
+   
+   
+    #lbl1 = Label(window, text="el orden de las canciones generado es")
+    #lbl1.grid(column=0, row=800)
+
+
     window.mainloop()
     
 if __name__ == '__main__':
