@@ -43,8 +43,7 @@ if entry2 == "y":
         drummers_entry_out.append(drummers_entry4)
 
         
-        with open('base_de_datos.json', 'w') as file:
-            json.dump(drummers_entry_out, file, indent=4)
+        
 
 
 
@@ -88,7 +87,10 @@ def drummer():
     drummers_outing = random_drummers()
     return (drummers_outing)
 drummers_out = drummer()
-
+if entry2 == "y":
+    if entry_base != "y":
+        with open('base_de_datos.json', 'w') as file:
+                    json.dump(drummers_out, file, indent=4)
 
 # aqui definimos un numero random del las listas
 def new_sons_mens_number():
