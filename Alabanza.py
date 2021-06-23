@@ -1,6 +1,14 @@
 from os import close, truncate
 import random
-
+import json
+good_sons = { 
+}
+old_sons = {
+}
+good_slow_sons = {
+}
+old_slow_sons = {
+}
 # confra = int(input("Hay culto de confraternidad?.. Si si 1, si no 0: "))
 confra = 0
 meetings = []
@@ -45,8 +53,15 @@ def drummer():
     return (drummers_outing)
 drummers_out = drummer()
 
-print(drummers_out)
+# print(drummers_out)
 
+
+
+
+
+tf = open("old_sons.json", "r")
+new_dict = json.load(tf)
+print(new_dict[])
 
 
 #file = open("base_de_datos.txt",'a')
